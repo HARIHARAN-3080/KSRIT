@@ -40,7 +40,7 @@ app.use('/api', registerRoutes);
 // .then(() => console.log('✅ MongoDB connected'))
 // .catch((err) => console.error('❌ MongoDB connection error:', err));
 
-const mongoURI = 'mongodb+srv://admin:admin123@cluster0.abcd.mongodb.net/ksrit_conf?retryWrites=true&w=majority';
+const mongoURI = 'mongodb+srv://admin:admin123@ksritcon.sjj4uvt.mongodb.net/?retryWrites=true&w=majority&appName=ksritcon';
 
 mongoose.connect(mongoURI)
   .then(() => console.log('✅ MongoDB connected'))

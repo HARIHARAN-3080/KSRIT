@@ -82,7 +82,7 @@ const Navbar = () => {
           <Link
             to="/admin/login"
             onClick={() => setIsOpen(false)}
-            className="block md:inline-block py-2 md:py-0 hover:text-[#fb923c] transition"
+            className="hidden md:inline-block py-2 md:py-0 hover:text-[#fb923c] transition"
           >
             Admin Login
           </Link>

@@ -5,24 +5,34 @@ const path = require('path');
 
 const app = express();
 
-// Temporarily allow all origins (for debugging)
-app.use(cors());
+// ✅ Use your actual IP address here
+const localIP = ' 192.168.196.204';
+
+// === CORS Configuration ===
+const corsOptions = {
+  origin: [
+    'http://localhost:5173',
+    'https://hariharan-3080.github.io',
+    `http://${localIP}:5173`,
+    `http://${localIP}`
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
+// === Middleware ===
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Test route
-app.get('/api/test', (req, res) => {
-  res.json({ message: 'API is working' });
-});
-
-// Your existing routes
+// === Routes ===
 const adminRoutes = require('./routes/admin');
 const registerRoutes = require('./routes/register');
 
 app.use('/api/admin', adminRoutes);
 app.use('/api', registerRoutes);
 
-// Connect to MongoDB
+// === MongoDB Connection ===
 mongoose.connect('mongodb://localhost:27017/ksrit_conf', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -30,7 +40,8 @@ mongoose.connect('mongodb://localhost:27017/ksrit_conf', {
 .then(() => console.log('✅ MongoDB connected'))
 .catch((err) => console.error('❌ MongoDB connection error:', err));
 
+// === Server Start ===
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Server running at http://0.0.0.0:${PORT}`);
+  console.log(`🚀 Server running at http://${localIP}:${PORT}`);
 });

@@ -5,8 +5,8 @@ const path = require('path');
 
 const app = express();
 
-// ✅ Use your actual IP address here
-const localIP = ' 192.168.196.204';
+// ✅ Correct IP with no leading space
+const localIP = '192.168.196.204';
 
 // === CORS Configuration ===
 const corsOptions = {

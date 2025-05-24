@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 
 // ✅ Correct IP with no leading space
-const localIP = '192.168.196.204';
+const localIP = '0.0.0.0';
 
 // === CORS Configuration ===
 const corsOptions = {
@@ -33,12 +33,18 @@ app.use('/api/admin', adminRoutes);
 app.use('/api', registerRoutes);
 
 // === MongoDB Connection ===
-mongoose.connect('mongodb://localhost:27017/ksrit_conf', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('✅ MongoDB connected'))
-.catch((err) => console.error('❌ MongoDB connection error:', err));
+// mongoose.connect('mongodb://localhost:27017/ksrit_conf', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// })
+// .then(() => console.log('✅ MongoDB connected'))
+// .catch((err) => console.error('❌ MongoDB connection error:', err));
+
+const mongoURI = 'mongodb+srv://admin:admin123@cluster0.abcd.mongodb.net/ksrit_conf?retryWrites=true&w=majority';
+
+mongoose.connect(mongoURI)
+  .then(() => console.log('✅ MongoDB connected'))
+  .catch((err) => console.error('❌ MongoDB connection error:', err));
 
 // === Server Start ===
 const PORT = process.env.PORT || 5000;

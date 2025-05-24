@@ -5,9 +5,17 @@ const path = require('path');
 
 const app = express();
 
+// Replace '192.168.x.x' with your actual local IP address
+const localIP = '192.168.x.x'; 
+
 // === CORS Configuration ===
 const corsOptions = {
-  origin: ['http://localhost:5173','https://hariharan-3080.github.io'],
+  origin: [
+    'http://localhost:5173',
+    'https://hariharan-3080.github.io',
+    `http://${localIP}:5173`, // frontend access from LAN
+    `http://${localIP}`,       // any access from LAN without port
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 };
@@ -34,6 +42,7 @@ mongoose.connect('mongodb://localhost:27017/ksrit_conf', {
 
 // === Server Start ===
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+// Listen on all interfaces (0.0.0.0) to allow LAN access
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Server running at http://${localIP}:${PORT}`);
 });

@@ -49,53 +49,55 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Navigation Links */}
-        <div
-          className={`
-            ${isOpen ? 'block' : 'hidden'} 
-            md:flex md:space-x-8 md:text-sm md:items-center md:font-medium
-            absolute md:static bg-[#061e3e] md:bg-transparent w-full left-0 md:w-auto top-full md:top-auto px-4 md:px-0 py-4 md:py-0
-            shadow-md md:shadow-none
-          `}
-        >
-          <Link
-            to="/"
-            onClick={() => setIsOpen(false)}
-            className="block md:inline-block py-2 md:py-0 hover:text-[#fb923c] transition"
-          >
-            Home
-          </Link>
-          <Link
-            to="/updates"
-            onClick={() => setIsOpen(false)}
-            className="block md:inline-block py-2 md:py-0 hover:text-[#fb923c] transition"
-          >
-            Updates
-          </Link>
-          <Link
-            to="/department"
-            onClick={() => setIsOpen(false)}
-            className="block md:inline-block py-2 md:py-0 hover:text-[#fb923c] transition"
-          >
-            Department
-          </Link>
-          <Link
-            to="/admin/login"
-            onClick={() => setIsOpen(false)}
-            className="hidden md:inline-block py-2 md:py-0 hover:text-[#fb923c] transition"
-          >
-            Admin Login
-          </Link>
+      {/* Navigation Links */}
+<div
+  className={`
+    ${isOpen ? 'block' : 'hidden'} 
+    md:flex md:space-x-8 md:text-sm md:items-center md:font-medium
+    absolute md:static bg-[#061e3e] md:bg-transparent w-full left-0 md:w-auto top-full md:top-auto px-4 md:px-0 py-4 md:py-0
+    shadow-md md:shadow-none
+  `}
+>
+  <Link
+    to="/"
+    onClick={() => setIsOpen(false)}
+    className="block md:inline-block py-2 md:py-0 hover:text-[#fb923c] transition"
+  >
+    Home
+  </Link>
+  <Link
+    to="/updates"
+    onClick={() => setIsOpen(false)}
+    className="block md:inline-block py-2 md:py-0 hover:text-[#fb923c] transition"
+  >
+    Updates
+  </Link>
+  <Link
+    to="/department"
+    onClick={() => setIsOpen(false)}
+    className="block md:inline-block py-2 md:py-0 hover:text-[#fb923c] transition"
+  >
+    Department
+  </Link>
 
-          {/* Register Button */}
-          <Link
-            to="/register"
-            onClick={() => setIsOpen(false)}
-            className="block md:inline-block bg-[#fb923c] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#f97316] transition"
-          >
-            Register
-          </Link>
-        </div>
+  {/* Admin Login hidden on mobile */}
+  <Link
+    to="/admin/login"
+    onClick={() => setIsOpen(false)}
+    className="hidden md:inline-block py-2 md:py-0 hover:text-[#fb923c] transition"
+  >
+    Admin Login
+  </Link>
+
+  {/* Register Button */}
+  <Link
+    to="/register"
+    onClick={() => setIsOpen(false)}
+    className="block md:inline-block bg-[#fb923c] text-white px-4 py-2 rounded-md font-semibold hover:bg-[#f97316] transition"
+  >
+    Register
+  </Link>
+</div>
       </div>
     </nav>
   );

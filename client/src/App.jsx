@@ -16,11 +16,11 @@ import Dashboard from './pages/admin/Dashboard';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/KSRIT">
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow bg-gray-50 p-4">
-          <Routes basename="/KSRIT">
+          <Routes >
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/updates" element={<Updates />} />

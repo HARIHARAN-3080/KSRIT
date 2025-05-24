@@ -4,5 +4,6 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),tailwindcss()],
+  base: '/KSRIT/client/',  // <--- Add this line, match your repo and folder path
+  plugins: [react(), tailwindcss()],
 })

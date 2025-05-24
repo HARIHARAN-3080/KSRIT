@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';  // add useEffect here
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,11 +8,16 @@ const AdminLogin = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  // Add this effect to redirect if already logged in
+  // Base URL for API depending on environment
+  const BASE_URL =
+    window.location.hostname === 'localhost' 
+      ? 'http://localhost:5000'   // your local backend server URL
+      : 'https://ksrit-backend.onrender.com'; // your deployed backend URL (or IP)
+
   useEffect(() => {
     const token = localStorage.getItem('adminToken');
     if (token) {
-      navigate('/admin/dashboard');  // redirect to dashboard if token exists
+      navigate('/admin/dashboard');
     }
   }, [navigate]);
 
@@ -20,7 +25,7 @@ const AdminLogin = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:5000/api/admin/login', {
+      const res = await axios.post(`${BASE_URL}/api/admin/login`, {
         username,
         password,
       });
@@ -39,7 +44,9 @@ const AdminLogin = () => {
         onSubmit={handleLogin}
         className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
       >
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Admin Login</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+          Admin Login
+        </h2>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <input
           type="text"

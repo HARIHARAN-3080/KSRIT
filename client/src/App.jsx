@@ -20,7 +20,7 @@ const App = () => {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow bg-gray-50 p-4">
-          <Routes>
+          <Routes basename="/KSRIT">
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/updates" element={<Updates />} />

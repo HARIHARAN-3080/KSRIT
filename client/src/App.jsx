@@ -16,7 +16,7 @@ import Dashboard from './pages/admin/Dashboard';
 
 const App = () => {
   return (
-    <Router basename="/KSRIT">
+    <Router>
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow bg-gray-50 p-4">

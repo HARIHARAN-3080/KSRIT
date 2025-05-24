@@ -14,7 +14,8 @@ const corsOptions = {
     'http://localhost:5173',
     'https://hariharan-3080.github.io',
     `http://${localIP}:5173`,
-    `http://${localIP}`
+    `http://${localIP}`,
+    `https://ksrit-backend.onrender.com`
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,

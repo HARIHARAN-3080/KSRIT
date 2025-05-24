@@ -69,7 +69,7 @@ const Registration = () => {
 
     try {
       setLoading(true);
-      const res = await fetch("https://ksrit-backend.onrender.com", {
+      const res = await fetch("https://ksrit-backend.onrender.com/api/register", {
         method: "POST",
         body: dataToSend,
       });

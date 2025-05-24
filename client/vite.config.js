@@ -3,6 +3,11 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  base: '/KSRIT/',   // <-- base path matches your repo name
+  base: '/KSRIT/', // must match repo name
   plugins: [react(), tailwindcss()],
+  build: {
+    rollupOptions: {
+      input: './index.html',
+    },
+  },
 })

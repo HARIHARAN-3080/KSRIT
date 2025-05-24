@@ -1,0 +1,10 @@
+# Ignore node_modules
+client/node_modules/
+server/node_modules/
+
+# Ignore other potential files
+dist/
+build/
+.env
+.DS_Store
+node_modules/

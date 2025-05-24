@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://HARIHARAN-3080.github.io/KSRIT/client",
+  "homepage": "https://hariharan-3080.github.io/KSRIT/client",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
